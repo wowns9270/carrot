@@ -29,7 +29,6 @@ gameBtn.addEventListener("click", () => {
 });
 
 pop_up_btn.addEventListener("click", () => {
-  started = !started;
   pop_up.classList.add("pop-up--hide");
 
   field.innerHTML = "";
@@ -140,6 +139,7 @@ field.addEventListener("click", (event) => {
       clearInterval(timer);
       pop_up.classList.remove("pop-up--hide");
       pop_up_message.innerText = "SUCCESS";
+      started = !started;
     }
   }
 
@@ -147,5 +147,6 @@ field.addEventListener("click", (event) => {
     clearInterval(timer);
     pop_up.classList.remove("pop-up--hide");
     pop_up_message.innerText = "FAIL";
+    started = !started;
   }
 });
