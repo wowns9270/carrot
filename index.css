@@ -8,6 +8,14 @@ body {
   text-align: center;
 }
 
+.title {
+  color: white;
+  margin-bottom: 10px;
+  font-size: 25px;
+  border-radius: 5px;
+  background-color: darksalmon;
+}
+
 .game {
   margin: auto;
   display: flex;

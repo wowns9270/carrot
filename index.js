@@ -15,6 +15,12 @@ const pop_up = document.querySelector(".pop-up");
 const pop_up_message = document.querySelector(".pop-up__message");
 const pop_up_btn = document.querySelector(".pop-up__refresh");
 
+var audio1 = new Audio("./sound/bg.mp3");
+var audio2 = new Audio("./sound/alert.wav");
+var audio3 = new Audio("./sound/bug_pull.mp3");
+var audio4 = new Audio("./sound/carrot_pull.mp3");
+var audio5 = new Audio("./sound/game_win.mp3");
+
 let started = false;
 let score = 5;
 let timer = undefined;
@@ -29,6 +35,7 @@ gameBtn.addEventListener("click", () => {
 });
 
 pop_up_btn.addEventListener("click", () => {
+  audio2.play();
   pop_up.classList.add("pop-up--hide");
 
   field.innerHTML = "";
@@ -54,6 +61,7 @@ function stopGame() {
 }
 
 function startGame() {
+  audio1.play();
   initGame();
   showStopButton();
   showTimerAndScore();
@@ -78,6 +86,7 @@ function startGameTimer() {
       pop_up.classList.remove("pop-up--hide");
       pop_up_message.innerText = "FAIL";
       started = !started;
+      audio2.play();
       return;
     }
     updateTimerText(--remainingTimeSec);
@@ -132,6 +141,7 @@ function randomNumber(min, max) {
 
 field.addEventListener("click", (event) => {
   if (event.target.className === "carrot") {
+    audio4.play();
     event.target.remove();
     score--;
     gameScore.innerText = score;
@@ -141,10 +151,12 @@ field.addEventListener("click", (event) => {
       pop_up.classList.remove("pop-up--hide");
       pop_up_message.innerText = "SUCCESS";
       started = !started;
+      audio5.play();
     }
   }
 
   if (event.target.className === "bug") {
+    audio3.play();
     clearInterval(timer);
     pop_up.classList.remove("pop-up--hide");
     pop_up_message.innerText = "FAIL";
