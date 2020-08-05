@@ -1,9 +1,9 @@
 "use strick";
 
 const CARROT_SIZE = 80;
-const CARROT_COUNT = 5;
-const BUG_COUNT = 5;
-const Game_DURATION_SEC = 5;
+const CARROT_COUNT = 10;
+const BUG_COUNT = 15;
+const Game_DURATION_SEC = 10;
 
 const field = document.querySelector(".game__field");
 const fieldRect = field.getBoundingClientRect();
@@ -22,7 +22,7 @@ var audio4 = new Audio("./sound/carrot_pull.mp3");
 var audio5 = new Audio("./sound/game_win.mp3");
 
 let started = false;
-let score = 5;
+let score = 10;
 let timer = undefined;
 
 gameBtn.addEventListener("click", () => {
@@ -50,7 +50,7 @@ pop_up_btn.addEventListener("click", () => {
   gameScore.style.visibility = "hidden";
 
   gameTimer.innerText = "0:5";
-  score = 5;
+  score = 10;
 });
 
 function stopGame() {
