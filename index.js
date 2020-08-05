@@ -77,6 +77,7 @@ function startGameTimer() {
       clearInterval(timer);
       pop_up.classList.remove("pop-up--hide");
       pop_up_message.innerText = "FAIL";
+      started = !started;
       return;
     }
     updateTimerText(--remainingTimeSec);
